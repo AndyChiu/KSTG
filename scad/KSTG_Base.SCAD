@@ -215,7 +215,7 @@ for (i =[1:Tray_VS_Q-1])
 module Cut_L(items){
   for (item = items)
         translate([(Keycaps_Space_W+Tray_Separator_T)*(item[0]-1)+Tray_Fence_T,(Keycaps_Space_L+Tray_Separator_T)*(item[1])+Tray_Fence_T-Tray_Separator_T,Tray_Bottom_T]) 
-            cube([Keycaps_Space_W,Tray_Separator_T,Tray_Separator_H]);
+            cube([Keycaps_Space_L,Tray_Separator_T,Tray_Separator_H]);
   }  
   
 module Cut_W(items){
@@ -229,6 +229,19 @@ module Cut_C(items){
         translate([(Keycaps_Space_W+Tray_Separator_T)*(item[0]-1)+Keycaps_Space_W+Tray_Fence_T,(Keycaps_Space_L+Tray_Separator_T)*(item[1])+Tray_Fence_T-Tray_Separator_T,Tray_Bottom_T]) 
             cube([Tray_Separator_T,Tray_Separator_T,Tray_Separator_H]);
   }  
+
+module Cut_LB(items){
+  for (item = items)
+        translate([(Keycaps_Space_W+Tray_Separator_T)*(item[0]-1)+Tray_Fence_T+Tray_Bottom_L,(Keycaps_Space_L+Tray_Separator_T)*(item[1])+Tray_Fence_T-Tray_Separator_T-Tray_Bottom_L,0]) 
+            cube([Keycaps_Space_L-Tray_Bottom_L*2,Tray_Bottom_L*2+Tray_Separator_T,Tray_Bottom_T]);
+  }  
+  
+module Cut_WB(items){
+    for (item = items)
+        translate([(Keycaps_Space_W+Tray_Separator_T)*item[0]+Tray_Fence_T-Tray_Separator_T-Tray_Bottom_L,(Keycaps_Space_L+Tray_Separator_T)*(item[1]-1)+Tray_Fence_T+Tray_Bottom_L,0]) 
+            cube([Tray_Bottom_L*2+Tray_Separator_T,Keycaps_Space_W-Tray_Bottom_L*2,Tray_Bottom_T]);
+    }    
+  
   
 //產生畫面
 difference() {
@@ -238,4 +251,6 @@ difference() {
     Cut_L(Tray_Separator_Cut_L);
     Cut_W(Tray_Separator_Cut_W);
     Cut_C(Tray_Separator_Cut_C);
+    Cut_LB(Tray_Separator_Cut_LB);
+    Cut_WB(Tray_Separator_Cut_WB);
     }
