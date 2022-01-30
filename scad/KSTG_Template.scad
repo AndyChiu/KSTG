@@ -53,7 +53,7 @@ Keycaps_Space_W = 18.5;
 // 2 短隔板無底板
 // 3 短隔板有底板
 
-Tray_VS_Type = 3;
+Tray_VS_Type = 1;
 
 //多餘空間處理方式
 //How to use the extra space
@@ -65,20 +65,30 @@ ExtraSpaceUse = 2;
 //是否顯示文字標記 0關/1開
 ShowText = 1 ;
 
-//清除分割片
+//清除分隔片與底板
 //請參考F5後帶出的座標數值
 //例如：
 // Tray_Separator_Cut_L=[
 // [1,1],[2,1],[3,1],[1,2]
 // ];
 
-// 長(水平) 紅色
+// 長(水平)分隔片 紅色
 Tray_Separator_Cut_L=[
+[4,1],[4,3]
 ];
-// 寬(垂直) 藍色
+// 寬(垂直)分隔片 藍色 -vnm,     
 Tray_Separator_Cut_W=[
+[1,1]
 ];
-// 交錯點 綠色 長寬交會處須手動清除交錯點
+// 交錯點 綠色 長寬分隔片交會處
+// 須手動清除交錯點
 Tray_Separator_Cut_C=[
 ];
-
+// 長(水平)底板 紅色
+Tray_Separator_Cut_LB=[
+[4,1],[4,3]
+];
+// 寬(垂直)底板 藍色
+Tray_Separator_Cut_WB=[
+[1,1]
+];
