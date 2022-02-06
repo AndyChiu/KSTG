@@ -175,7 +175,7 @@ translate([Tray_Fence_T-Tray_Column_T_L,Tray_Fence_T-Tray_Column_T_W,0])
 translate([BoxSize_L-Tray_Column_L,Tray_Fence_T-Tray_Column_T_W,0]) 
     cube([Tray_Column_L,Tray_Column_T_W,Tray_Column_H+Tray_Bottom_T],false);
 // 右下右
-translate([BoxSize_L-Tray_Column_T_L-Tray_Fence_T+Tray_Column_T_W,Tray_Fence_T-Tray_Column_T_L,0]) 
+translate([BoxSize_L-Tray_Column_T_L-Tray_Fence_T+Tray_Column_T_L,Tray_Fence_T-Tray_Column_T_W,0]) 
     cube([Tray_Column_T_L,Tray_Column_W,Tray_Column_H+Tray_Bottom_T],false); 
 // 左上上     
 translate([0,BoxSize_W-Tray_Column_T_W-Tray_Fence_T+Tray_Column_T_W,0]) 
