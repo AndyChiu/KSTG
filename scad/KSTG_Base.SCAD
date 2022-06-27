@@ -14,9 +14,9 @@ Tray_HS_Q = floor((BoxSize_W1-(Tray_Fence_T*2)+Edge_Separator_L_T)/(Keycaps_Spac
 Tray_VS_Q = floor((BoxSize_L1-(Tray_Fence_T*2)+Edge_Separator_W_T)/(Keycaps_Space_L+Tray_Separator_T));
 
 //盒子可放幾個托盤
-Tray_Q = floor(BoxSize_H/(Tray_Column_H+Tray_Bottom_T));
+Tray_Q = floor(BoxSize_H1/(Tray_Column_H+Tray_Bottom_T));
 
-echo(str("存放盒子長寬高：", BoxSize_L1,"mm x ",BoxSize_W1,"mm x ",BoxSize_H, "mm"));
+echo(str("存放盒子長寬高：", BoxSize_L1,"mm x ",BoxSize_W1,"mm x ",BoxSize_H1, "mm"));
 
 echo(str("托盤分隔 行x列 數：", Tray_HS_Q,"行 x ",Tray_VS_Q,"列"));
 
@@ -28,20 +28,25 @@ echo(str("單盒可存鍵帽：", Tray_HS_Q*Tray_VS_Q*Tray_Q, "U"));
 // 修正後存放盒子的大小:
 BoxSize_L2 = Tray_VS_Q*(Keycaps_Space_L+Tray_Separator_T)+(Tray_Fence_T*2)-Tray_Separator_T; //長度
 BoxSize_W2 = Tray_HS_Q*(Keycaps_Space_W+Tray_Separator_T)+(Tray_Fence_T*2)-Tray_Separator_T; //寬度
-echo("使用空間L2=", BoxSize_L2, "");
-echo("使用空間W2=", BoxSize_W2, "");
+BoxSize_H2 = Tray_Q * (Tray_Column_H+Tray_Bottom_T); //高度
+
+echo(str("使用空間L2=", BoxSize_L2, ""));
+echo(str("使用空間W2=", BoxSize_W2, ""));
+echo(str("使用空間H2=", BoxSize_H2, ""));
 
 //多出來的邊界空間
 ES_L2=BoxSize_L1-BoxSize_L2;
 ES_W2=BoxSize_W1-BoxSize_W2;
+ES_H2=BoxSize_H1-BoxSize_H2;
 
 ES_L=ES_L2/2;
 ES_W=ES_W2/2;
 
-echo("多餘空間L=", ES_L2, "");
-echo("多餘空間W=", ES_W2, "");
+echo(str("多餘空間L(雙邊總和)=", ES_L2, ""));
+echo(str("多餘空間W(雙邊總和)=", ES_W2, ""));
+echo(str("多餘空間H(頂層)=", ES_H2, ""));
 
-echo("中央開口",Keycaps_Space_L-(Tray_Bottom_L*2)," x ",Keycaps_Space_W-(Tray_Bottom_L*2));
+echo(str("中央開口",Keycaps_Space_L-(Tray_Bottom_L*2)," x ",Keycaps_Space_W-(Tray_Bottom_L*2)));
 
 BoxSize_L = ExtraSpaceUse==0 ? BoxSize_L1 : BoxSize_L2;
 BoxSize_W = ExtraSpaceUse==0 ? BoxSize_W1 : BoxSize_W2;
