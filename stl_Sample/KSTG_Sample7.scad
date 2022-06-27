@@ -8,7 +8,7 @@ include <KSTG_Base.SCAD>
 // 存放盒子的大小:
 BoxSize_L1 = 150; //長度(水平)
 BoxSize_W1 = 150; //寬度(垂直)
-BoxSize_H = 50;  //高度
+BoxSize_H1 = 50;  //高度
 
 // 外圍厚度
 Tray_Fence_T = 1;  //厚度
