@@ -93,7 +93,7 @@ translate([0,(Keycaps_Space_L+Tray_Separator_T)*i+Tray_Fence_T-Tray_Separator_T,
 //if(Tray_VS_Type==0);
 
 // 1、3 底板
-if(Tray_VS_Type==1 || Tray_VS_Type==3) {
+if(Tray_VS_Type==1 || Tray_VS_Type==3 || Tray_VS_Type==4) {
     //右
     for (i =[1:Tray_VS_Q])
     translate([(Keycaps_Space_W+Tray_Separator_T)*i-Tray_Bottom_L-Tray_Separator_T+Tray_Fence_T,0,0]) 
@@ -138,29 +138,29 @@ else if(Tray_VS_Type==1) {
  if (ExtraSpaceUse == 2) {
     //左下下
     translate([0,-ES_W,0]) 
-        cube([Keycaps_Space_W,ES_W,Tray_Bottom_T],false);
+        cube([Keycaps_Space_W,ES_W,ES_H],false);
     //左下左
      translate([-ES_L,0,0]) 
-        cube([ES_L,Keycaps_Space_L,Tray_Bottom_T],false);    
+        cube([ES_L,Keycaps_Space_L,ES_H],false);    
 
      //左上左
      translate([-ES_L,BoxSize_W-Keycaps_Space_L,0]) 
-        cube([ES_L,Keycaps_Space_L,Tray_Bottom_T],false); 
+        cube([ES_L,Keycaps_Space_L,ES_H],false); 
      //左上上
      translate([0,BoxSize_W,0]) 
-        cube([Keycaps_Space_W,ES_W,Tray_Bottom_T],false);
+        cube([Keycaps_Space_W,ES_W,ES_H],false);
      //右下右
      translate([BoxSize_L,0,0]) 
-        cube([ES_L,Keycaps_Space_L,Tray_Bottom_T],false);    
+        cube([ES_L,Keycaps_Space_L,ES_H],false);    
      //右下下
      translate([BoxSize_L-Keycaps_Space_W,-ES_W,0]) 
-        cube([Keycaps_Space_W,ES_W,Tray_Bottom_T],false);
+        cube([Keycaps_Space_W,ES_W,ES_H],false);
      //右上右
      translate([BoxSize_L,BoxSize_W-Keycaps_Space_L,0]) 
-        cube([ES_L,Keycaps_Space_L,Tray_Bottom_T],false);    
+        cube([ES_L,Keycaps_Space_L,ES_H],false);    
      //右上上
      translate([BoxSize_L-Keycaps_Space_W,BoxSize_W,0]) 
-        cube([Keycaps_Space_W,ES_W,Tray_Bottom_T],false);
+        cube([Keycaps_Space_W,ES_W,ES_H],false);
         
     }
      
@@ -196,7 +196,7 @@ translate([BoxSize_L-Tray_Column_T_L-Tray_Fence_T+Tray_Column_T_L,BoxSize_W-Tray
     cube([Tray_Column_T_L,Tray_Column_W,Tray_Column_H+Tray_Bottom_T],false); 
 
 //文字標記
-if (ShowText==1) { 
+if (ShowText==1 && $preview==true) { 
     
 for (i =[1:Tray_VS_Q])
     for (j =[1:Tray_HS_Q-1])
@@ -246,8 +246,7 @@ module Cut_WB(items){
         translate([(Keycaps_Space_W+Tray_Separator_T)*item[0]+Tray_Fence_T-Tray_Separator_T-Tray_Bottom_L,(Keycaps_Space_L+Tray_Separator_T)*(item[1]-1)+Tray_Fence_T+Tray_Bottom_L,0]) 
             cube([Tray_Bottom_L*2+Tray_Separator_T,Keycaps_Space_W-Tray_Bottom_L*2,Tray_Bottom_T]);
     }    
-  
-  
+
 //產生畫面
 difference() {
     //建立基礎
@@ -259,3 +258,10 @@ difference() {
     Cut_LB(Tray_Separator_Cut_LB);
     Cut_WB(Tray_Separator_Cut_WB);
     }
+    
+//增加項目
+Cut_L(Tray_Separator_Put_L);
+Cut_W(Tray_Separator_Put_W);
+Cut_C(Tray_Separator_Put_C);
+Cut_LB(Tray_Separator_Put_LB);
+Cut_WB(Tray_Separator_Put_WB);

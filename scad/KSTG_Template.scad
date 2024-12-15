@@ -61,6 +61,7 @@ Keycaps_Space_W = 18.5;
 // 1 全部
 // 2 短隔板無底板
 // 3 短隔板有底板
+// 4 無隔板有底板
 
 Tray_VS_Type = 1;
 
@@ -71,15 +72,22 @@ Tray_VS_Type = 1;
 // 2 角落填補剩餘空間
 ExtraSpaceUse = 2;
 
+//填補空間高度
+ES_H = Tray_Separator_H + Tray_Separator_T; 
+//ES_H = Tray_Column_H + Tray_Column_T;
+
 //是否於預覽狀態(F5)顯示座標數值標記 0關/1開
 ShowText = 1 ;
 
-//清除分隔片與底板
+//分隔片與底板
+
 //請參考F5後帶出的座標數值
 //例如：
 // Tray_Separator_Cut_L=[
 // [1,1],[2,1],[3,1],[1,2]
 // ];
+
+//清除
 
 // 長(水平)分隔片 紅色
 Tray_Separator_Cut_L=[
@@ -100,4 +108,23 @@ Tray_Separator_Cut_LB=[
 // 寬(垂直)底板 藍色
 Tray_Separator_Cut_WB=[
 [1,1]
+];
+
+//增加
+
+// 長(水平)分隔片 紅色
+Tray_Separator_Put_L=[
+];
+// 寬(垂直)分隔片 藍色     
+Tray_Separator_Put_W=[
+];
+// 交錯點 綠色 長寬分隔片交會處
+// 須手動清除交錯點
+Tray_Separator_Put_C=[
+];
+// 長(水平)底板 紅色
+Tray_Separator_Put_LB=[
+];
+// 寬(垂直)底板 藍色
+Tray_Separator_Put_WB=[
 ];
