@@ -29,6 +29,7 @@ Vertical separator style: 0 - Not needed
 
 ![範例圖示](/img/gallery/05.jpg "")
 垂直分隔片樣式：1-全部\
+Vertical separator style: 1 - Full\
 搭配手動清除分隔片與底板\
 Used with manually removed separators and base plates
 
