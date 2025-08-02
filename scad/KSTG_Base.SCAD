@@ -925,6 +925,9 @@ module BlockPutObj()
 if (BlockPutObj_Name=="Choc_Base")
 {
     BlockPutObj_Choc_Base();
+} else if (BlockPutObj_Name=="Choc_Base2")
+{
+    BlockPutObj_Choc_Base2();
 } else if (BlockPutObj_Name=="Choc_LongBase")
 {
     BlockPutObj_Choc_LongBase();
@@ -941,6 +944,7 @@ module BlockCutObj_Grooves()
 
 //增加物件-Choc V1用中央突起Stem座
 //底部內凹，便於手指由底部推出鍵帽
+//中央一大孔
 module BlockPutObj_Choc_Base()
 {
     translate([0,0,-Tray_Bottom_T])
@@ -964,6 +968,45 @@ module BlockPutObj_Choc_Base()
     translate([0,0,-0.1])
     cube([6.9+6+1,3+6+2.5,0.1],center=true);    
     }
+    }
+}
+
+//增加物件-Choc V1用中央突起Stem座
+//底部內凹，便於手指由底部推出鍵帽
+//有stem兩孔
+module BlockPutObj_Choc_Base2()
+{
+    translate([0,0,-Tray_Bottom_T])
+    difference()
+    {
+    hull()
+    {
+    translate([0,0,(4)])
+    cube([13-1,8-1,0.001],center=true);
+    translate([0,0,0])
+    cube([15+1,11+2.5,0.001],center=true);    
+    }
+    //cube([13-1,8-1,(4+Tray_Bottom_T)],center=true);
+    hull()
+    {
+    translate([(6.9)/2-0.6,0,4+0.01])
+    //Choc stem開口 長6.9x寬2.8
+    //可依照需求增減尺寸
+    //開口如果使用TPU，寬可縮減以便夾緊
+    #cube([1.2-0.3,2.8-0.3,0.1],center=true);
+    translate([0,0,-0.1])
+    cube([6.9+6+1,3+6+2.5,0.1],center=true);    
+    }
+    hull()
+    {
+    translate([-(6.9)/2+0.6,0,4+0.01])
+    //Choc stem開口 長6.9x寬2.8
+    //可依照需求增減尺寸
+    //開口如果使用TPU，寬可縮減以便夾緊
+    #cube([1.2-0.3,2.8-0.3,0.1],center=true);
+    translate([0,0,-0.1])
+    cube([6.9+6+1,3+6+2.5,0.1],center=true);    
+    }    
     }
 }
 
